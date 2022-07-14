@@ -90,7 +90,7 @@ const createBook = async function (req, res) {
                 if (bookCoverFile.length > 1) {
                     return res.status(400).send({ status: false, message: "Please upload only one image" })
                 }
-                if (!validator.isValidImage(bookCoverFile[0].originalname)) {
+                if(!validator.isValidImage(bookCoverFile[0].originalname)){
                     return res.status(400).send({ status: false, message: "Please upload only image file with extension jpg, png" })
                 }
                 let bookCoverURL = await uplodFile(bookCoverFile[0])
